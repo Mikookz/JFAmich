@@ -1,0 +1,6 @@
+import '../models/setting_item_model.dart';import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/setting_item_model.dart';import 'package:zonar_marketing__grapichs/presentation/setting_screen/models/setting_model.dart';part 'setting_event.dart';part 'setting_state.dart';class SettingBloc extends Bloc<SettingEvent, SettingState> {SettingBloc(SettingState initialState) : super(initialState) { on<SettingInitialEvent>(_onInitialize); on<SettingItemEvent>(_settingItem); }
+
+_onInitialize(SettingInitialEvent event, Emitter<SettingState> emit, ) async  { emit(state.copyWith(settingModelObj: state.settingModelObj?.copyWith(settingItemList: fillSettingItemList()))); } 
+_settingItem(SettingItemEvent event, Emitter<SettingState> emit, ) { List<SettingItemModel> newList = List<SettingItemModel>.from(state.settingModelObj!.settingItemList); newList[event.index] = newList[event.index].copyWith(isSelectedSwitch: event.isSelectedSwitch); emit(state.copyWith(settingModelObj: state.settingModelObj?.copyWith(settingItemList: newList))); } 
+List<SettingItemModel> fillSettingItemList() { return List.generate(3, (index) => SettingItemModel()); } 
+ }

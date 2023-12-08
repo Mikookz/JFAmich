@@ -1,0 +1,3 @@
+class SimiliarItemModel {String? id = "";
+
+ }

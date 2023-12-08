@@ -1,0 +1,3 @@
+class GridrectangleItemModel {String? id = "";
+
+ }
