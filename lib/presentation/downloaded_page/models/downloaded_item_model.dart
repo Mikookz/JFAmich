@@ -1,0 +1,3 @@
+class DownloadedItemModel {String? id = "";
+
+ }
